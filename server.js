@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 
-app.use('/api', routes)
+app.use('/', routes)
 
 
 db.on('error', console.error.bind(console, 'MongoDB Connection Error:'))
