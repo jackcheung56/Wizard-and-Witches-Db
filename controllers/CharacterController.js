@@ -13,17 +13,20 @@ const createCharacter = async (request, response) => {
 }
 
 const getCharacterById = async (request, response) => {
-    try {
-        const { id } = request.params
-        const character = await character.findById(id)
-        if (character) {
-            return response.status(200).json({character})
+    const character = await (await Character.findById(request.params.id)).populate([
+        {
+            path: 'houses',
+            populate: {
+                path: 'houses',
+                model: 'houses',
+                select: 'house_id name'
+            }
         }
-        return response.status(404).send('No wizard/witch with this Character ID.')
-    } catch (error) {
-        return response.status(500).send(error.message)
-    }
+    ])
+    console.log(character)
+    response.send(character)
 }
+
 
 const updateCharacter = async (request, response) => {
     try{

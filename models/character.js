@@ -9,13 +9,25 @@ const Character = new Schema ({
         type: String,
         required: true
     },
+    birth: {
+        type: String,
+        required: true
+    },
+    ancestry: {
+        type: String,
+        required: true
+    },
+    patronus: {
+        type: String,
+        required: true
+    },
     house: {
         type: Schema.Types.ObjectId,
         ref: 'houses'
     },
-    spell: {
-        type: Schema.Types.ObjectId,
-        ref: 'spells'
+    image_url: {
+        type: String,
+        required: true
     }
 }, {
     timestamps: true
