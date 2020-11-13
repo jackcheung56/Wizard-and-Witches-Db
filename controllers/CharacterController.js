@@ -1,5 +1,14 @@
 const Character = require('../models/character')
 
+const getCharacters = async (request, response) => {
+    const { page, limit } = request.query
+    const offset = page === '1' ? 0 : Math.floor(parseInt(page) * parseInt(limit))
+    const characters = await Character.find()
+    .limit(parseInt(limit))
+    .skip(offset)
+    response.send({ results: characters.length, characters})
+}
+
 const createCharacter = async (request, response) => {
     try{
         const character = await new Character(request.body)
@@ -13,16 +22,13 @@ const createCharacter = async (request, response) => {
 }
 
 const getCharacterById = async (request, response) => {
-    const character = await (await Character.findById(request.params.id)).populate([
+    const character = await Character.findById(request.params.id).populate(
         {
-            path: 'houses',
-            populate: {
-                path: 'houses',
-                model: 'houses',
-                select: 'house_id name'
-            }
+            path: 'house',
+            model: 'houses',
+            select: '_id name'
         }
-    ])
+    )
     console.log(character)
     response.send(character)
 }
@@ -59,6 +65,7 @@ const deleteCharacter = async (request, response) => {
 }
 
 module.exports = {
+    getCharacters,
     createCharacter,
     getCharacterById,
     updateCharacter,
