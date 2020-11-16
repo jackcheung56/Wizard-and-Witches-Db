@@ -1,4 +1,4 @@
-const house = require('../models/house')
+
 const House = require('../models/house')
 
 const createHouse = async (request, response) => {

@@ -6,12 +6,12 @@ import LandingPage from '../pages/LandingPage'
 import Wizard from '../pages/Wizard'
 import Spells from '../pages/Spells'
 
+
 class Router extends Component {
     constructor() {
         super()
         this.state = {
-            pageLoading: true
-           
+            pageLoading: true           
         }
     }
 
@@ -36,7 +36,6 @@ class Router extends Component {
                    )}
                    />
                    <Route
-                   exact
                    path='/character'
                    component = {(props) => (
                        <LandingPage>
@@ -45,7 +44,6 @@ class Router extends Component {
                    )}
                    />
                    <Route
-                   exact
                    path='/spells'
                    component = {(props) => (
                        <LandingPage>

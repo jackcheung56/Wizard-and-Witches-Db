@@ -3,7 +3,11 @@ const Character = require('../models/character')
 const getCharacters = async (request, response) => {
     const { page, limit } = request.query
     const offset = page === '1' ? 0 : Math.floor(parseInt(page) * parseInt(limit))
-    const characters = await Character.find()
+    const characters = await Character.find().populate({
+        path: 'house',
+        model: 'houses',
+        select: '_id name'
+    })
     .limit(parseInt(limit))
     .skip(offset)
     response.send({ results: characters.length, characters})
