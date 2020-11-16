@@ -10,17 +10,21 @@ class Router extends Component {
     constructor() {
         super()
         this.state = {
-            
+            pageLoading: true
            
         }
     }
 
-    // componentDidMount() {
-    //     this.setState({ pageLoading: false })
-    // }
+    componentDidMount() {
+        this.setState({ pageLoading: false })
+    }
+
     render() {
         return (
             <main>
+                {this.state.pageLoading ? (
+                    <h2>Page is Loading</h2>
+                ) : (
                <Switch>
                    <Route
                    exact
@@ -34,22 +38,23 @@ class Router extends Component {
                    <Route
                    exact
                    path='/character'
-                   component = {() => (
+                   component = {(props) => (
                        <LandingPage>
-                           <Wizard />
+                           <Wizard {...props}/>
                        </LandingPage>
                    )}
                    />
                    <Route
                    exact
                    path='/spells'
-                   component = {() => (
+                   component = {(props) => (
                        <LandingPage>
-                           <Spells />
+                           <Spells {...props}/>
                        </LandingPage>
                    )}
                    />
                 </Switch> 
+                )}
             </main>
         )
     }
