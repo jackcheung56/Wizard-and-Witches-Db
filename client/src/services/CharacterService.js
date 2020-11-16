@@ -11,3 +11,12 @@ export const __GetCharacters = async(page, limit) => {
         throw error
     }
 }
+
+export const __GetCharacter = async (characterId) => {
+    try{
+        const response = await ApiClient.get(`/character/${characterId}`)
+        return response.data
+    } catch (error) {
+        throw error
+    }
+}

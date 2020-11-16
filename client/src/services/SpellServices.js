@@ -8,3 +8,12 @@ export const __GetSpells = async (page, limit) => {
         throw error
     }
 }
+
+export const __GetSpell = async (spellId) => {
+    try {
+        const response = await ApiClient.get(`/spell/${spellId}`)
+        return response.data
+    } catch (error) {
+        throw error
+    }
+}

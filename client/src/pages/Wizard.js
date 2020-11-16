@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-//import Box from '../components/Box'
 import {__GetCharacters} from '../services/CharacterService'
+//import Box from '../components/Box'
 
 export default class Wizard extends Component {
     constructor() {
@@ -24,7 +24,7 @@ export default class Wizard extends Component {
         }
     }
 
-    morePage = () => this.setState(
+    nextPage = () => this.setState(
         (prevstate) => ({ currentPage: prevstate.currentPage + 1}),
         () => this.fetchCharacter()
     )
@@ -52,7 +52,7 @@ export default class Wizard extends Component {
                     ) : (
                         <h4>No Posts</h4>
                     )}
-                    <button onClick={this.morePage}>Next Page</button>
+                    <button onClick={this.nextPage}>Next Page</button>
                 </section>
             </div>
         )

@@ -5,14 +5,11 @@ export default class Spell extends Component {
     constructor(){
         super()
         this.state = {
-            spells: '',
+            spells: [],
             currentPage: 1
         }
     }
-    componenetDidMount(){
-
-    }
-
+    
     getSpells = async () => {
         try{
             const spells = await __GetSpells(this.state.currentPage)
@@ -21,7 +18,10 @@ export default class Spell extends Component {
             console.log(error)
         }
     }
-
+    componenetDidMount(){
+        this.getSpells()
+    }
+    
     nextPage = () =>
     this.setState ((prevstate) => ({ currentPage: prevstate.currentPage + 1}),
     () => this.getSpells()
