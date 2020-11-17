@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {__GetCharacters} from '../services/CharacterService'
-//import Box from '../components/Box'
+import Box from '../components/Box'
+
 
 export default class Wizard extends Component {
     constructor() {
@@ -38,16 +39,21 @@ export default class Wizard extends Component {
                 <section>
                     {characters.length ? (
                         characters.map((character) => (
+                            <Box
+                            key = {character._id}
+                            onClick={() => this.props.history.push(`/character/${character._id}`)} 
+                            >
                                 <div>
                                     <h3>{character.name}</h3>
                                     <img src ={character.image_url} alt="hp" />
-                                    <p>{character.gender},
-                                        {character.birth},
-                                        {character.ancestry},
-                                        {character.patronus},
-                                        {character.house}
-                                        </p>
+                                    <p> {character.gender} </p>
+                                    <p> {character.birth} </p>
+                                    <p> {character.ancestry}</p>
+                                    <p> {character.patronus}</p>
+                                    <p> {character.house}</p>
+                                        
                                 </div>
+                                </Box>
                         ))
                     ) : (
                         <h4>No Posts</h4>

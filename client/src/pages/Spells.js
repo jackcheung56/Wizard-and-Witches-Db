@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {__GetSpells} from '../services/SpellServices'
 
+
 export default class Spell extends Component {
     constructor(){
         super()
@@ -43,7 +44,7 @@ export default class Spell extends Component {
                 ) : (
                     <h3>No Posts</h3>
                 )}
-                <button onClick={this.nextPage}> More Spells </button>
+                <button onClick={this.nextPage}>More Spells</button>
                 </section>
             </div>
         )

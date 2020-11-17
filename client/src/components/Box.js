@@ -2,7 +2,7 @@ import React from 'react'
 
 export default ({ children, ...rest }) => {
     return (
-        <div {...rest}>
+        <div classname="card" {...rest}>
             {children}
         </div>
     )
