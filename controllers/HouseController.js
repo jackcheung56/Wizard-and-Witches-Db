@@ -1,5 +1,15 @@
 
+const { response } = require('express')
 const House = require('../models/house')
+
+const getHouse = async (request, response) => {
+    try{
+        const house = await House.findById(request.params.id)
+        response.send(house)
+    } catch (error){
+        throw error
+    }
+}
 
 const createHouse = async (request, response) => {
     try {
@@ -31,6 +41,7 @@ const updateHouse = async (request, response) => {
 }
 
 module.exports = {
+    getHouse,
     createHouse,
     updateHouse
 }

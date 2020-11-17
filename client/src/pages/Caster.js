@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { __GetCharacter } from '../services/CharacterService'
+import { Link } from 'react-router-dom'
 
 export default class Caster extends Component {
     constructor() {
@@ -35,7 +36,7 @@ export default class Caster extends Component {
                 <p> Birthday: {character.birth} </p>
                 <p> Ancestry: {character.ancestry}</p>
                 <p> Patronus: {character.patronus}</p>
-                <p> House: {character.house.name}</p>
+                <Link> House: {character.house.name}</Link>
             </div>
             )}
         return <h3>Summoning Wizard/Witch</h3>
