@@ -6,6 +6,7 @@ import LandingPage from '../pages/LandingPage'
 import Wizard from '../pages/Wizard'
 import Spells from '../pages/Spells'
 import Casted from '../pages/Casted'
+import Caster from '../pages/Caster'
 
 
 class Router extends Component {
@@ -53,10 +54,18 @@ class Router extends Component {
                    )}
                    />
                    <Route
-                   path='/casted'
+                   path='/casted/:_id'
                    component = {(props) => (
                        <LandingPage>
                            <Casted {...props}/>
+                       </LandingPage>
+                   )}
+                   />
+                   <Route
+                   path='/caster/:_id'
+                   component = {(props) => (
+                       <LandingPage>
+                           <Caster {...props}/>
                        </LandingPage>
                    )}
                    />

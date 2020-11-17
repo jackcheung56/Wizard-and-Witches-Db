@@ -28,7 +28,7 @@ const getSpells = async (request, response) => {
 
 const getSpell = async (request, response) => {
     try {
-        const spell = await Spell.findById(request.params.spell_id)
+        const spell = await Spell.findById(request.params.id)
         response.send(spell)
     } catch (error) {
         throw error

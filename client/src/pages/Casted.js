@@ -12,12 +12,12 @@ export default class Casted extends Component {
 
     componentDidMount() {
         this.getSpell()
-        console.log('mounted')
+        //console.log('mounted')
     }
 
     getSpell = async () => {
         try{
-            const spell = await __GetSpell(this.props.match.params.spell_id)
+            const spell = await __GetSpell(this.props.match.params._id)
             console.log(spell)
             this.setState({ spell })
         } catch (error) {
@@ -35,6 +35,6 @@ export default class Casted extends Component {
                 </div>
             )
         }
-        return <h3>Loading</h3>
+        return <h3>Casting</h3>
     }
 }

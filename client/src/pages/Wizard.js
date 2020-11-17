@@ -43,7 +43,7 @@ export default class Wizard extends Component {
                         characters.map((character) => (
                             <Box
                             key = {character._id}
-                            onClick={() => this.props.history.push(`/character/${character._id}`)} 
+                            onClick={() => this.props.history.push(`/caster/${character._id}`)} 
                             >
                                 <div>
                                     <h3>Name: {character.name}</h3>

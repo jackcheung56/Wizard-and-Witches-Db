@@ -12,9 +12,9 @@ export const __GetCharacters = async(page, limit) => {
     }
 }
 
-export const __GetCharacter = async (characterId) => {
+export const __GetCharacter = async (_id) => {
     try{
-        const response = await ApiClient.get(`/character/${characterId}`)
+        const response = await ApiClient.get(`/character/caster/${_id}`)
         return response.data
     } catch (error) {
         throw error

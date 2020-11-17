@@ -14,7 +14,7 @@ export default class Spell extends Component {
 
     componentDidMount(){
         this.getSpells()
-        console.log('mounted')
+        //console.log('mounted')
     }
     
     getSpells = async () => {
