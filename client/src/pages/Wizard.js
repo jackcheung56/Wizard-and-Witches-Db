@@ -41,21 +41,15 @@ export default class Wizard extends Component {
                 <section>
                     {characters.length ? (
                         characters.map((character) => (
+                            <div>
+                                    <h3>Name: {character.name}</h3>
                             <Box
                             key = {character._id}
                             onClick={() => this.props.history.push(`/caster/${character._id}`)} 
                             >
-                                <div>
-                                    <h3>Name: {character.name}</h3>
                                     <img src ={character.image_url} alt="hp" />
-                                    <p> Gender: {character.gender} </p>
-                                    <p> Birthday: {character.birth} </p>
-                                    <p> Ancestry: {character.ancestry}</p>
-                                    <p> Patronus: {character.patronus}</p>
-                                    <p> House: {character.house.name}</p>
-                                        
-                                </div>
                                 </Box>
+                                </div>
                         ))
                     ) : (
                         <h4>No Posts</h4>
