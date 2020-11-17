@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {__GetSpells} from '../services/SpellServices'
+import Box from '../components/Box'
 
 
 export default class Spell extends Component {
@@ -10,17 +11,20 @@ export default class Spell extends Component {
             currentPage: 1
         }
     }
+
+    componentDidMount(){
+        this.getSpells()
+        console.log('mounted')
+    }
     
     getSpells = async () => {
         try{
             const spells = await __GetSpells(this.state.currentPage)
             this.setState({ spells: [...this.state.spells, ...spells]})
+            console.log(spells)
         } catch (error) {
             console.log(error)
         }
-    }
-    componenetDidMount(){
-        this.getSpells()
     }
     
     nextPage = () =>
@@ -36,10 +40,14 @@ export default class Spell extends Component {
                 <section>
                 {spells.length ? (
                     spells.map((spell) => (
+                        <Box
+                        key={spell._id}
+                        onClick={() => this.props.history.push(`/casted/${spell._id}`)}>
                        <div>
-                           <h3>{spell.name}</h3>
-                           <p>{spell.description}</p>
-                       </div>     
+                           <h3>Spell: {spell.name}</h3>
+                           <p>Description: {spell.description}</p>
+                       </div>
+                       </Box>     
                     ))
                 ) : (
                     <h3>No Posts</h3>

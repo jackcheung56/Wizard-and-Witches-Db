@@ -12,14 +12,16 @@ export default class Wizard extends Component {
         }
     }
 
-    componenetDidMount() {
+    componentDidMount() {
         this.fetchCharacter()
+        //console.log('mounted')
     }
 
     fetchCharacter = async () => {
         try{
             const characters = await __GetCharacters(this.state.currentPage)
             this.setState({ characters: [...this.state.characters, ...characters] })
+            //console.log(characters)
         } catch (error) {
             console.log(error)
         }
@@ -44,13 +46,13 @@ export default class Wizard extends Component {
                             onClick={() => this.props.history.push(`/character/${character._id}`)} 
                             >
                                 <div>
-                                    <h3>{character.name}</h3>
+                                    <h3>Name: {character.name}</h3>
                                     <img src ={character.image_url} alt="hp" />
-                                    <p> {character.gender} </p>
-                                    <p> {character.birth} </p>
-                                    <p> {character.ancestry}</p>
-                                    <p> {character.patronus}</p>
-                                    <p> {character.house}</p>
+                                    <p> Gender: {character.gender} </p>
+                                    <p> Birthday: {character.birth} </p>
+                                    <p> Ancestry: {character.ancestry}</p>
+                                    <p> Patronus: {character.patronus}</p>
+                                    <p> House: {character.house.name}</p>
                                         
                                 </div>
                                 </Box>
@@ -58,7 +60,7 @@ export default class Wizard extends Component {
                     ) : (
                         <h4>No Posts</h4>
                     )}
-                    <button onClick={this.nextPage}>Next Page</button>
+                    <button onClick={this.nextPage}>More Wizard/Witches</button>
                 </section>
             </div>
         )

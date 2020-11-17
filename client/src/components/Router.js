@@ -44,7 +44,7 @@ class Router extends Component {
                    )}
                    />
                    <Route
-                   path='/spells'
+                   path='/spell'
                    component = {(props) => (
                        <LandingPage>
                            <Spells {...props}/>

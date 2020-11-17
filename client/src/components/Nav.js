@@ -14,7 +14,7 @@ function Nav() {
                 <NavLink activeClassName="nav-active" to ='/character'>
                     Wizard/Witches
                 </NavLink>
-                <NavLink activeClassName="nav-active" to ='/spells'>
+                <NavLink activeClassName="nav-active" to ='/spell'>
                     Spells
                 </NavLink>
         </nav>       

@@ -6,7 +6,7 @@ export const __GetCharacters = async(page, limit) => {
             `/character?page=${page || 1}&limit=${limit || 5}`
         )
         console.log(response.data)
-        return response.data
+        return response.data.characters
     } catch (error){
         throw error
     }
