@@ -11,11 +11,13 @@ export default class Caster extends Component {
 
     componentDidMount() {
         this.getCharacter()
+        console.log('mounted')
     }
 
     getCharacter = async () => {
         try {
             const character = await __GetCharacter(this.props.match.params._id)
+            console.log(character)
             this.setState({character})
         } catch (error){
             console.log(error)
@@ -25,6 +27,7 @@ export default class Caster extends Component {
     render () {
         const { character } = this.state
         if (this.state.character) {
+            return(
             <div>
                 <h2>Name: {character.name}</h2>
                 <img src ={character.image_url} alt="hp" />
@@ -34,7 +37,7 @@ export default class Caster extends Component {
                 <p> Patronus: {character.patronus}</p>
                 <p> House: {character.house.name}</p>
             </div>
-        }
+            )}
         return <h3>Summoning Wizard/Witch</h3>
     }
 }

@@ -18,7 +18,7 @@ export default class Casted extends Component {
     getSpell = async () => {
         try{
             const spell = await __GetSpell(this.props.match.params._id)
-            console.log(spell)
+            //console.log(spell)
             this.setState({ spell })
         } catch (error) {
             console.log(error)
