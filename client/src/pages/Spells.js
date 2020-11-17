@@ -21,7 +21,7 @@ export default class Spell extends Component {
         try{
             const spells = await __GetSpells(this.state.currentPage)
             this.setState({ spells: [...this.state.spells, ...spells]})
-            console.log(spells)
+            //console.log(spells)
         } catch (error) {
             console.log(error)
         }

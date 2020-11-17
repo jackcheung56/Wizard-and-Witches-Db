@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-//import { Link } from 'react-router-dom'
 import { __GetSpell } from '../services/SpellServices'
 
 export default class Casted extends Component {

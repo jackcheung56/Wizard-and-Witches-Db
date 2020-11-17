@@ -7,6 +7,7 @@ import Wizard from '../pages/Wizard'
 import Spells from '../pages/Spells'
 import Casted from '../pages/Casted'
 import Caster from '../pages/Caster'
+import House from '../pages/House'
 
 
 class Router extends Component {
@@ -66,6 +67,14 @@ class Router extends Component {
                    component = {(props) => (
                        <LandingPage>
                            <Caster {...props}/>
+                       </LandingPage>
+                   )}
+                   />
+                   <Route
+                   path='/house/:id'
+                   component = {(props) => (
+                       <LandingPage>
+                           <House {...props}/>
                        </LandingPage>
                    )}
                    />

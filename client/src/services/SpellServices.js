@@ -13,7 +13,7 @@ export const __GetSpells = async (page, limit) => {
 export const __GetSpell = async (_id) => {
     try {
         const response = await ApiClient.get(`/spell/casted/${_id}`)
-        console.log(response.data)
+        //console.log(response.data)
         return response.data
     } catch (error) {
         throw error
