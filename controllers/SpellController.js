@@ -34,8 +34,26 @@ const getSpell = async (request, response) => {
         throw error
     }
 }
+
+const updateSpell = async (request, response) => {
+    try{
+        const { id } = request.params
+        await Spell.findByIdAndUpdate(id, request.body, { new: true}, (error, spell) =>{
+            if(error) {
+                response.status(500).send(error)
+            }
+            if(!spell) {
+                response.status(500).send('Spell does not exist!')
+            }
+            return response.status(200).json(spell)
+        })
+    } catch (error) {
+        return response.status(500).send(error.message)
+    }
+}
 module.exports = {
     createSpell,
     getSpells,
-    getSpell
+    getSpell,
+    updateSpell
 }

@@ -32,6 +32,7 @@ export default class Casted extends Component {
                 <div>
                     <h2>Spell: {spell.name}</h2>
                     <p>Description: {spell.description}</p>
+                    <img src={spell.image_url} alt= "accio"/>
                 </div>
             )
         }

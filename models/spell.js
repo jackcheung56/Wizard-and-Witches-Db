@@ -8,6 +8,10 @@ const Spell = new Schema ({
     description: {
         type: String,
         required: true
+    },
+    image_url: {
+        type: String,
+        required: true
     }
 }, {
     timestamps: true
