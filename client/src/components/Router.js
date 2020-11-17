@@ -5,6 +5,7 @@ import Home from '../pages/Home'
 import LandingPage from '../pages/LandingPage'
 import Wizard from '../pages/Wizard'
 import Spells from '../pages/Spells'
+import Casted from '../pages/Casted'
 
 
 class Router extends Component {
@@ -48,6 +49,14 @@ class Router extends Component {
                    component = {(props) => (
                        <LandingPage>
                            <Spells {...props}/>
+                       </LandingPage>
+                   )}
+                   />
+                   <Route
+                   path='/casted'
+                   component = {(props) => (
+                       <LandingPage>
+                           <Casted {...props}/>
                        </LandingPage>
                    )}
                    />

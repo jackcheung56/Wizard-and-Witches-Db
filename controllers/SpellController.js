@@ -13,7 +13,7 @@ const createSpell = async (request, response) => {
     }
 }
 
-const getSpell = async (request, response) => {
+const getSpells = async (request, response) => {
     try {
         const { page, limit } = request.query
         const offset = page === '1' ? 0 : Math.floor(parseInt(page) * parseInt(limit))
@@ -25,7 +25,17 @@ const getSpell = async (request, response) => {
         throw error
     }
 }
+
+const getSpell = async (request, response) => {
+    try {
+        const spell = await Spell.findById(request.params.spell_id)
+        response.send(spell)
+    } catch (error) {
+        throw error
+    }
+}
 module.exports = {
     createSpell,
+    getSpells,
     getSpell
 }
