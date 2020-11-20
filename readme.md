@@ -3,7 +3,7 @@
 ***
 
 ### Description
-Welcome to the Wizard and Witches Database. This database will contain information about the characters in the famous Harry Potter series and the Fantastic Beast series. You will be able to see the characters, the houses that they are aligned to, the spells that they know, and the beasts in the series. 
+Welcome to the Wizard and Witches Database. This database will contain information about the characters in the famous Harry Potter series and the Fantastic Beast series. You will be able to see the characters, the houses that they are aligned to, the spells that they know, and the beasts in the series. Each of the post in app will direct you to another page with more information about the post you click on. 
 
 ![ERD Diagram](https://i.imgur.com/oe0eJ55.png)
 
