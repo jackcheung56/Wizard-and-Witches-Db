@@ -39,6 +39,7 @@ export default class Caster extends Component {
                 <p> Birthday: {character.birth} </p>
                 <p> Ancestry: {character.ancestry}</p>
                 <p> Patronus: {character.patronus}</p>
+                <p> House: {character.house.name}</p>
             <Box
             key ={character.house._id}
             onClick={() => this.props.history.push(`/house/${character.house._id}`)}>

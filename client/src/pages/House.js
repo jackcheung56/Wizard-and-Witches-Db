@@ -16,7 +16,7 @@ export default class House extends Component {
 
     getHouse = async () =>{
         try {
-            const house = await __GetHouse(this.props.match.params.id)
+            const house = await __GetHouse(this.props.match.params._id)
             this.setState({house})
         } catch (error) {
         console.log(error)

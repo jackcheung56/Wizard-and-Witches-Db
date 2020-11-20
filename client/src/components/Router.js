@@ -71,7 +71,7 @@ class Router extends Component {
                    )}
                    />
                    <Route
-                   path='/house/:id'
+                   path='/house/:_id'
                    component = {(props) => (
                        <LandingPage>
                            <House {...props}/>

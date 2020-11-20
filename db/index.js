@@ -8,6 +8,11 @@ mongoose
     .catch(e => {
         console.error('Connection error', e.message)
     })
+    mongoose.connect(
+        process.env.NODE_ENV === 'production'
+          ? process.env.DATABASE_URL
+          : 'mongodb://127.0.0.1:27017/wizardDatabase'
+      )
 mongoose.set('debug', true)
 const db = mongoose.connection
 
